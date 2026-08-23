@@ -1,0 +1,1 @@
+const {writeFileSync, mkdirSync} = require('fs'); const {dirname} = require('path'); function w(p,c){try{mkdirSync(dirname(p),{recursive:true})}catch(e){}; writeFileSync(p,c,'utf8'); console.log('Written: '+p);}
