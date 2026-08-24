@@ -97,6 +97,17 @@
 			<version>2.8.10</version>
 		</dependency>
 
+	    <!-- Testcontainers for integration tests -->
+	    <dependency>
+	        <groupId>org.testcontainers</groupId>
+	        <artifactId>testcontainers</artifactId>
+	        <scope>test</scope>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.testcontainers</groupId>
+	        <artifactId>postgresql</artifactId>
+	        <scope>test</scope>
+	    </dependency>
 	</dependencies>
 
 	<build>
