@@ -5,7 +5,7 @@ Full-stack interview preparation platform with AI-powered question generation an
 ## Tech Stack
 
 ### Backend
-- Java 21
+- Java 25
 - Spring Boot 3.5.16
 - Spring Security (JWT, stateless)
 - Spring Data JPA (Hibernate)
