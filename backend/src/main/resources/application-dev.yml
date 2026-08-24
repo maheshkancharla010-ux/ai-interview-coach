@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/ai_interview_coach
-    username: postgres
-    password: root
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/ai_interview_coach}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:}
 
 
   jpa:
