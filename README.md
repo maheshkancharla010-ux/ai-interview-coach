@@ -1,4 +1,4 @@
-# AI Interview Coach
+﻿# AI Interview Coach
 
 Full-stack interview preparation platform with AI-powered question generation and feedback.
 
@@ -81,21 +81,37 @@ ai-interview-coach/
 CREATE DATABASE ai_interview_coach;
 ```
 
-3. Configure database credentials in `backend/src/main/resources/application-dev.yml`:
+3. Configure database credentials using environment variables or `application-dev.yml`:
 
-```yaml
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/ai_interview_coach
-    username: postgres
-    password: your_password
+Recommended: set environment variables before running the backend (preferred for local development and CI):
+
+```bash
+# POSIX (bash/zsh)
+export DATABASE_URL=jdbc:postgresql://localhost:5432/ai_interview_coach
+export DATABASE_USERNAME=postgres
+export DATABASE_PASSWORD=your_password
+
+# PowerShell
+$env:DATABASE_URL = 'jdbc:postgresql://localhost:5432/ai_interview_coach'
+$env:DATABASE_USERNAME = 'postgres'
+$env:DATABASE_PASSWORD = 'your_password'
 ```
 
-4. (Optional) Set JWT secret via environment variable:
+Alternatively, edit `backend/src/main/resources/application-dev.yml` or create a gitignored `application-dev-local.yml` with these values for convenience.
 
+4. Set JWT secret via environment variable (required for running the backend):
+
+The application requires a secure JWT signing secret. It should be at least 256 bits (32 bytes). Provide it via the JWT_SECRET environment variable. Example:
+
+```bash
+# POSIX (bash/zsh)
+export JWT_SECRET=your-32+byte-secret-or-base64-encoded-value
+
+# PowerShell
+$env:JWT_SECRET = 'your-32+byte-secret-or-base64-encoded-value'
 ```
-JWT_SECRET=your-256-bit-secret-key-here
-```
+
+For local convenience, you may create a gitignored `application-dev-local.yml` that sets `app.jwt.secret` for development only — but do NOT commit secrets to the repository.
 
 ## Run the Project
 
@@ -273,3 +289,4 @@ See [docs/VOLUME_3_COMPLETION.md](docs/VOLUME_3_COMPLETION.md) for the full comp
 
 ### Volume 5 - Testing, Deployment & Final Integration
 - **Status:** Pending
+
